@@ -21,9 +21,7 @@ app.use('/', routes)
 app.use((err, req, res, next)=>{
     let status = err.status
     console.log(err);
-    
-    res.status(status).json(err.message)
-    
+    res.status(status).json(err.message) 
 })
 
 app.listen(process.env.PORT, ()=>{
