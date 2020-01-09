@@ -1,6 +1,10 @@
 const {OAuth2Client} = require('google-auth-library');
+const clientId = process.env.CLIENT_ID
+const client = new OAuth2Client(clientId);
 const User = require('../models/user')
 const jwt = require('jsonwebtoken');
+
+
 
 module.exports = {
     googleSign(req, res, next){        
@@ -8,7 +12,7 @@ module.exports = {
         let status
         const client = new OAuth2Client(process.env.CLIENT_ID);
         client.verifyIdToken({
-            idToken: req.body.access_token,
+            idToken: req.body.google_token,
             audience: process.env.CLIENT_ID
         })
             .then(ticket=>{
