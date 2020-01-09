@@ -14,7 +14,7 @@ class Anime{
                 if (animes.data.length > 0) {
                     res.status(200).json(animes)
                 } else{
-                    err.message = "No repos starred"
+                    err.message = "No anime found"
                     next(err)
                     throw err
                 }
@@ -26,7 +26,7 @@ class Anime{
             })
     }
 
-    
+
 }
 
 module.exports = Anime
