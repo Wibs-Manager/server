@@ -21,7 +21,7 @@ module.exports = {
                 const {email} = payload
                 if (!user) {
                     status.ids = 201
-                    status.msg: "user not found. Create user"
+                    status.msg = "user not found. Create user"
                     return User.create({
                         name,
                         email,
