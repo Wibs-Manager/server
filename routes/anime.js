@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const Anime = require('../controllers/anime')
+const Anime = require('../controller/anime')
 
 router.get('/', Anime.showTopTen)
 // router.post('/', StarApi.addRepo)
