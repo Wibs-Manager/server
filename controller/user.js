@@ -35,7 +35,7 @@ class UserController {
         .then( user => {
           const idUser = user._id
           const token = jwt.sign({ id: idUser }, process.env.SECRET);
-          console.log(token);
+          // console.log(token, 'User Controller');
           
           res.status(200).json(token)
         })
