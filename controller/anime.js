@@ -11,7 +11,7 @@ class Anime{
     static showTopTen(req, res, next){
         jikanApi.get('/top/anime/1/tv')
             .then((animes) => {      
-                const err = {}   
+
                 res.status(200).json(animes.data.top)
             })
             .catch((err)=>{
@@ -57,6 +57,21 @@ class Anime{
             })
             .catch(err=>{
                 console.log(err);                
+                next(err)
+            })
+    }
+
+    static getFavAnime(req, res, next){
+        console.log('req.headers.token', '<<<<<<<<< ini token');
+        const token = jwt.verify(req.headers.token, process.env.SECRET)
+        console.log(token,"ini token");
+        
+        User.findOne({_id: token.id})
+            .then((data)=>{
+                console.log(data);
+                res.status(200).json(data.data)
+            })
+            .catch(err=>{
                 next(err)
             })
     }
