@@ -3,7 +3,8 @@ require('dotenv').config()
 const express = require('express')
 const app = express()
 const routes = require('./routes')
-const userRouter = require('./routes/user')
+const userRouter = require('./routes/user') //
+const animeCont = require('./controller/anime') //controller
 const cors = require('cors')
 const mongoose = require('mongoose')
 mongoose.connect('mongodb://localhost/WeebsManager', {useNewUrlParser: true, useUnifiedTopology : true})
@@ -24,6 +25,7 @@ app.use((err, req, res, next)=>{
     res.status(status).json(err.message) 
 })
 
+app.get('/anime', animeCont.showTopTen)
 app.use('/user', userRouter)
 app.use('/', routes)
 
