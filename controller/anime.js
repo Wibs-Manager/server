@@ -47,6 +47,20 @@ class Anime{
             })
     }
 
+    static getDetailsAnime(req, res, next){
+        console.log(req.params.idMal);
+        
+        jikanApi.get(`/anime/${req.params.idMal}`)
+            .then(data=>{
+                console.log(data.data);
+                res.status(200).json(data.data)
+            })
+            .catch(err=>{
+                console.log(err);                
+                next(err)
+            })
+    }
+
 
 }
 
