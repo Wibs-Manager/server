@@ -1,6 +1,7 @@
 const router = require('express').Router()
 const anime = require('./anime')
 const manga = require('./manga')
+const {randomCat} = require('../controller/cat')
 
 router.get('/', (req, res)=>{
 
@@ -8,5 +9,6 @@ router.get('/', (req, res)=>{
 })
 router.use('/anime', anime)
 router.use('/manga', manga)
+router.get('/cat', randomCat)
 
 module.exports = router

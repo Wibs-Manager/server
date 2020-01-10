@@ -6,7 +6,7 @@ router.get('/', Anime.showTopTen)
 router.get('/:idMal', Anime.getDetailsAnime)
 router.get('/search/:name', Anime.searchAnime)
 router.post('/', Anime.favAnime)
-// router.get('/', Anime.getFavAnime)
+router.get('/fav', Anime.getFavAnime)
 
 
 module.exports = router
